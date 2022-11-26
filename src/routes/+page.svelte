@@ -2,15 +2,15 @@
 	import ProposalForm from '$lib/components/ProposalForm.svelte';
 	import ProposalResponse from '$lib/components/ProposalResponse.svelte';
 
-	function onResult(event: { detail: string }) {
+	function onResult(event: { detail: { from: string; result: string } }) {
 		console.log(event);
 		responses = [event.detail, ...responses];
 	}
 
-	let responses: string[] = [];
+	let responses: { from: string; result: string }[] = [];
 </script>
 
-<main class="h-screen p-4">
+<main class="min-h-[90vh]">
 	<div class="flex flex-col items-center justify-items-center">
 		<h1 class="text-3xl font-bold mt-4 ">Les Moutons de Sonia</h1>
 		<p class="mt-2">
