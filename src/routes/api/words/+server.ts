@@ -5,7 +5,7 @@ import { OPENAI_API_KEY } from '$env/static/private';
 export async function POST({ request }) {
 	const { words } = await request.json();
 
-	if (words.length < 300) {
+	// if (words.length < 300) {
 		const configuration = new Configuration({
 			apiKey: OPENAI_API_KEY
 		});
@@ -22,7 +22,7 @@ export async function POST({ request }) {
 			// stop: ['\n']
 		});
 		return json({ text: completion.data.choices[0].text });
-	} else {
-		return error(400);
-	}
+	// } else {
+	// 	return error(400);
+	// }
 }
