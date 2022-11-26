@@ -3,7 +3,6 @@
 	import ProposalResponse from '$lib/components/ProposalResponse.svelte';
 
 	function onResult(event: { detail: { from: string; result: string } }) {
-		console.log(event);
 		responses = [event.detail, ...responses];
 	}
 
@@ -22,7 +21,7 @@
 
 		<hr class="my-8 h-px bg-gray-200 border-0 dark:bg-gray-700" />
 
-		<div class="grid grid-cols-1 divide-y gap-2 ">
+		<div class="grid grid-cols-1 divide-y gap-2">
 			{#each responses as response}
 				<ProposalResponse from={response.from} response={response.result} wordsAmount={2} />
 			{/each}

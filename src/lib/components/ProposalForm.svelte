@@ -1,7 +1,5 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
-	import { Configuration, OpenAIApi } from 'openai';
-	import { PUBLIC_OPENAI_API_KEY } from '$env/static/public';
 	const dispatch = createEventDispatcher();
 
 	let loading = false;
@@ -10,26 +8,22 @@
 	async function onSubmit() {
 		loading = true;
 		try {
-			const configuration = new Configuration({
-				// TODO: danger key in client side
-				apiKey: PUBLIC_OPENAI_API_KEY
+			const resp = await fetch('/api/words', {
+				method: 'POST',
+				headers: {
+					Accept: 'application/json',
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({ words })
 			});
-			// https://beta.openai.com/playground/
-			const openai = new OpenAIApi(configuration);
-			const completion = await openai.createCompletion({
-				model: 'text-curie-001',
-				prompt: words,
-				temperature: 0.85,
-				max_tokens: 30,
-				top_p: 1,
-				frequency_penalty: 0.5,
-				// presence_penalty: 0
-				// stop: ['\n']
-			});
-			dispatch('result', {
-				from: words,
-				result: completion.data.choices[0].text
-			});
+			if (resp.ok) {
+				const { text } = await resp.json();
+
+				dispatch('result', {
+					from: words,
+					result: text
+				});
+			}
 		} catch (error) {
 			console.error(error);
 		}
@@ -41,12 +35,12 @@
 <form class="mt-6 flex flex-col items-center" on:submit|preventDefault={onSubmit}>
 	<div class="mb-6">
 		<label for="large-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-			>Mots d'impro (proposition)</label
+			>Mots d'impro ou phrase (proposition)</label
 		>
 		<input
 			type="text"
 			id="large-input"
-			placeholder="tortue ciel"
+			placeholder="J'adore le poulailler de l'impro"
 			bind:value={words}
 			class="block p-4 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 		/>

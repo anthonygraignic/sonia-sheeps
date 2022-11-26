@@ -1,18 +1,19 @@
-# create-svelte
+# sonia sheeps
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+During an improv lesson, Sonia said:
 
-## Creating a project
+> Whenever I want to sleep, rather than counting sheeps I play this impro game: I give my self 2 words and have to find 2 others words related in the second.
 
-If you're seeing this, you've probably already done this step. Congrats!
+So let's play with [OpenAI](https://beta.openai.com/) to build her a digital twin :)
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Feature
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+The website is straightforward:
+
+1. You give as an input words or sentences in any language.
+2. The website repond by showing you 2 words selected from the OpenAI response.
+3. (LOOP) You can continue this game indefinitely to explore AI's mind.
+
 
 ## Developing
 
