@@ -14,7 +14,7 @@
 		</span>
 		<div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0 text-sm">
 			<a
-				href="https://github/agraignic/sonia-sheeps"
+				href="https://github.com/anthonygraignic/sonia-sheeps"
 				rel="external noopener noreferrer"
 				target="_blank"
 				class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
