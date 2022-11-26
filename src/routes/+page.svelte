@@ -10,7 +10,7 @@
 </script>
 
 <svelte:head>
-	<title>Sonia Sheeps</title>
+	<title>Sonia's Sheeps</title>
 	<meta name="description" content="Using OpenAI to improvise" />
 </svelte:head>
 
