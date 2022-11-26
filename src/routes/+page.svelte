@@ -9,6 +9,11 @@
 	let responses: { from: string; result: string }[] = [];
 </script>
 
+<svelte:head>
+	<title>Sonia Sheeps</title>
+	<meta name="description" content="Using OpenAI to improvise" />
+</svelte:head>
+
 <main class="min-h-[90vh]">
 	<div class="flex flex-col items-center justify-items-center">
 		<h1 class="text-3xl font-bold mt-4 ">Les Moutons de Sonia</h1>
