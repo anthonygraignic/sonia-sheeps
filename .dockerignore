@@ -1,0 +1,6 @@
+.idea
+.svelte-kit/
+build/
+node_modules/
+*.md
+.env.*
