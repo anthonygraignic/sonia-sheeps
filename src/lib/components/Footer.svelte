@@ -1,4 +1,4 @@
-<footer class="container m-auto p-4 bg-white sm:p-6 dark:bg-gray-800">
+<footer class="container m-auto sm:p-6 ">
 	<div class="sm:flex sm:items-center sm:justify-between">
 		<span>
 			<p>
